@@ -7,6 +7,7 @@
 - UX is up to you
 - use Tailwing for styling
 - create the app as monorepo distinguishing between frontend and API backend
+- create bridge between server components and separate backend endpoint calling the target REST API, even when in this simple solution it is not nescessary
 - dockerize the app with Docker and Docker Compose
 - create Docker services for production and local development
 - use Next.js App Router
