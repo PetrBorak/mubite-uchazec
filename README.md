@@ -193,9 +193,9 @@ Returns an array of:
 
 ```ts
 type Album = {
-  userId: number;
-  id: number;
-  title: string;
+    userId: number;
+    id: number;
+    title: string;
 };
 ```
 
@@ -211,19 +211,22 @@ type Album = {
 
 ---
 
-# 🎉 Notes
-
-- The repo uses **npm workspaces** to share code.
-- Docker dev mode mounts source folders to allow instant live reload.
-- Production mode uses multi-stage Docker builds for small image size.
-- Environment variables are static-injected in Next.js, so dev/prod compose files use different values.
-
----
-
 # 📬 Contact
 
-If you have questions or need clarification, feel free to reach out.
+If you have any questions or want to reach me directly:
+
+### 📱 Phone
+**+380 63 625 6317**
+
+### ✉️ Email
+**sabaoth8@gmail.com**
+
+### 💬 Telegram
+[@Nikitochka130](https://t.me/Nikitochka130)
+
+### 🔗 LinkedIn
+[https://www.linkedin.com/in/nikita-kornienko-29379215b/](https://www.linkedin.com/in/nikita-kornienko-29379215b/)
 
 ---
 
-**Thank you for reviewing this assessment!** 🚀
+Thank you very much for reviewing this assessment! 🚀
