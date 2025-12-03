@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020", "DOM"],
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mubite/types": ["packages/types/src"],
+      "@mubite/types/*": ["packages/types/src/*"],
+
+      "@backend/*": ["apps/backend/src/*"],
+      "@frontend/*": ["apps/frontend/*"]    // Next.js handles its own aliases, but this is safe
+    },
+    "composite": false,
+    "noEmit": true
+  },
+  "exclude": ["node_modules"]
+}
