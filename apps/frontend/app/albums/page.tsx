@@ -1,5 +1,5 @@
 import {Suspense} from "react";
-import AlbumsList from "./AlbumsList";
+import AlbumsList from "./components/AlbumsList";
 
 export default function AlbumsPage() {
     return (
@@ -7,7 +7,6 @@ export default function AlbumsPage() {
             <h1 className="text-3xl font-semibold mb-6">Albums</h1>
 
             <Suspense fallback={<AlbumsSkeleton/>}>
-                {/* This fetches data server-side */}
                 <AlbumsList/>
             </Suspense>
         </div>
