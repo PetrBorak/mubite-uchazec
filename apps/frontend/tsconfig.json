@@ -3,6 +3,19 @@
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+      "jsx": "preserve",
+      "allowJs": true,
+      "incremental": true,
+      "plugins": [{ "name": "next" }]
+    },
+    "include": [
+      "next-env.d.ts",
+      "**/*.ts",
+      "**/*.tsx",
+      ".next/types/**/*.ts"
+    ],
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,

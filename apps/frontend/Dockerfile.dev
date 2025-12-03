@@ -1,0 +1,17 @@
+FROM node:20-slim
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+
+COPY apps/frontend/package.json ./apps/frontend/
+COPY apps/backend/package.json ./apps/backend/
+
+RUN npm install --verbose
+
+RUN ls -la node_modules/lightningcss/node/ || echo "No lightningcss found"
+
+COPY . .
+
+EXPOSE 3000
+CMD ["npm", "run", "dev", "--workspace", "apps/frontend"]
