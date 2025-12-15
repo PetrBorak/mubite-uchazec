@@ -1,0 +1,43 @@
+# Builder stage
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy package.json from the frontend directory
+COPY packages/frontend/package.json ./
+RUN npm install
+
+# Copy frontend source
+COPY packages/frontend/ ./
+
+# Build the application
+RUN npm run build
+
+# Production stage
+FROM node:20-alpine AS production
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy the standalone output
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+
+# Copy static files
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Copy public files
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+# Try to start from root
+CMD ["node", "server.js"]

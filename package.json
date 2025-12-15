@@ -1,0 +1,39 @@
+{
+  "name": "mubit-app",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run build --workspace=@mubit-app/shared && npm-run-all --parallel dev:*",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "build": "npm run build --workspace=@mubit-app/shared && npm run build --workspace=backend --workspace=frontend",
+    "start": "npm-run-all --parallel start:*",
+    "start:frontend": "npm run start --workspace=frontend",
+    "start:backend": "npm run start --workspace=backend",
+    "test": "npm run test --workspace=backend --workspace=frontend",
+    "test:watch": "npm-run-all --parallel test:watch:*",
+    "test:watch:backend": "npm run test:watch --workspace=backend",
+    "test:watch:frontend": "npm run test:watch --workspace=frontend",
+    "test:coverage": "npm run test:coverage --workspace=backend --workspace=frontend",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-boundaries": "^5.3.1",
+    "husky": "^9.1.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.7.4",
+    "typescript-eslint": "^8.50.0"
+  }
+}
